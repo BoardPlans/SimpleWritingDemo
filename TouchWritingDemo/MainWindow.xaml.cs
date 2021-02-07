@@ -25,9 +25,36 @@ namespace TouchWritingDemo
         public MainWindow()
         {
             InitializeComponent();
+            MouseDown += MainWindow_MouseDown;
+            MouseMove += MainWindow_MouseMove;
+            MouseUp += MainWindow_MouseUpUp;
 
             StylusMove += MainWindow_StylusMove;
             StylusUp += MainWindow_StylusUp;
+        }
+
+        private void MainWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            _mouseStrokeVisual = new StrokeVisual();
+            var visualCanvas = new VisualCanvas(_mouseStrokeVisual);
+            Grid.Children.Add(visualCanvas);
+        }
+
+        private void MainWindow_MouseUpUp(object sender, MouseButtonEventArgs e)
+        {
+            _mouseStrokeVisual = null;
+        }
+
+        private StrokeVisual _mouseStrokeVisual; 
+        private void MainWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseStrokeVisual!=null)
+            {
+                var stylusPoint = e.GetPosition(this);
+                _mouseStrokeVisual.Add(new StylusPoint(stylusPoint.X, stylusPoint.Y));
+
+                _mouseStrokeVisual.Redraw();
+            }
         }
 
         private void MainWindow_StylusUp(object sender, StylusEventArgs e)
