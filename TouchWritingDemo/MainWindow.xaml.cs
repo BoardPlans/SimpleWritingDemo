@@ -123,7 +123,8 @@ namespace TouchWritingDemo
             Color = Colors.Red,
             FitToCurve = true,
             Width = 6,
-            IgnorePressure = true
+            Height = 6,
+            IgnorePressure = false
         })
         {
         }
