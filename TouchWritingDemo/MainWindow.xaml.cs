@@ -33,6 +33,8 @@ namespace TouchWritingDemo
             StylusUp += MainWindow_StylusUp;
         }
 
+        #region 鼠标
+
         private void MainWindow_MouseDown(object sender, MouseButtonEventArgs e)
         {
             _mouseStrokeVisual = new StrokeVisual();
@@ -52,10 +54,13 @@ namespace TouchWritingDemo
             {
                 var stylusPoint = e.GetPosition(this);
                 _mouseStrokeVisual.Add(new StylusPoint(stylusPoint.X, stylusPoint.Y));
-
                 _mouseStrokeVisual.Redraw();
             }
         }
+
+        #endregion
+
+        #region 触摸
 
         private void MainWindow_StylusUp(object sender, StylusEventArgs e)
         {
@@ -90,6 +95,9 @@ namespace TouchWritingDemo
         }
 
         private Dictionary<int, StrokeVisual> StrokeVisualList { get; } = new Dictionary<int, StrokeVisual>();
+
+        #endregion
+
     }
 
     public class VisualCanvas : FrameworkElement
