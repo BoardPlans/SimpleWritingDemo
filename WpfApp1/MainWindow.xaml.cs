@@ -34,7 +34,6 @@ namespace InkWritingByCanvasDemo
                 Height = 6,
                 Width = 6,
                 IgnorePressure = false,
-                IsHighlighter = true,
             };
             BoardInkCanvas.EraserShape = new RectangleStylusShape(100, 200);
         }
