@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace TouchWritingDemo
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// 重写底层笔迹绘制demo
     /// </summary>
     public partial class MainWindow : Window
     {

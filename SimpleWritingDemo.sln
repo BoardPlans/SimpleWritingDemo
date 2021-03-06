@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InkWritingByStrokeDemo", "TouchWritingDemo\InkWritingByStrokeDemo.csproj", "{301EAD50-5927-4137-BFF5-A293656BD104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InkWritingByCanvasDemo", "WpfApp1\InkWritingByCanvasDemo.csproj", "{9718EAE2-EB2D-4242-981E-848936928274}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InkWritingByCanvasDemo", "InkWritingByCanvasDemo\InkWritingByCanvasDemo.csproj", "{9718EAE2-EB2D-4242-981E-848936928274}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
