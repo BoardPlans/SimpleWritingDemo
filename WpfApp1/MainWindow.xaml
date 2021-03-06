@@ -1,17 +1,21 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+﻿<Window x:Class="InkWritingByCanvasDemo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:InkWritingByCanvasDemo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="InkCanvas实现书写的最简单DEMO" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <InkCanvas x:Name="BoardInkCanvas"></InkCanvas>
+        <InkCanvas x:Name="BoardInkCanvas" 
+                   PreviewStylusDown="BoardInkCanvas_OnPreviewStylusDown"
+                   PreviewStylusUp="BoardInkCanvas_OnPreviewStylusUp"
+                   PreviewMouseDown="BoardInkCanvas_OnPreviewMouseDown"
+                   PreviewMouseUp="BoardInkCanvas_OnPreviewMouseUp"></InkCanvas>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <RadioButton x:Name="SelectButton" Content="选择" Checked="SelectButton_OnChecked"></RadioButton>
             <RadioButton x:Name="PenButton" Content="笔" IsChecked="True" Checked="PenButton_OnChecked"></RadioButton>
