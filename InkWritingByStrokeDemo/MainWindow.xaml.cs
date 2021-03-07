@@ -31,6 +31,8 @@ namespace TouchWritingDemo
 
             StylusMove += MainWindow_StylusMove;
             StylusUp += MainWindow_StylusUp;
+
+            //待处理 擦除
         }
 
         #region 鼠标
