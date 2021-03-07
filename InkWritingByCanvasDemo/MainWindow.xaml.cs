@@ -35,7 +35,7 @@ namespace InkWritingByCanvasDemo
                 Width = 6,
                 IgnorePressure = false,
             };
-            BoardInkCanvas.EraserShape = new RectangleStylusShape(100, 200);
+            BoardInkCanvas.EraserShape = new RectangleStylusShape(60, 80);
         }
 
         private void SelectButton_OnChecked(object sender, RoutedEventArgs e)
