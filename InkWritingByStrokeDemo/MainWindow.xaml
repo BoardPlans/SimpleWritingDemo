@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TouchWritingDemo"
         mc:Ignorable="d"
-        Title="自定义笔迹书写Demo" Height="450" Width="800" WindowState="Normal">
+        Title="书写Demo" Height="450" Width="800" WindowState="Normal">
     <Grid>
         <Grid x:Name="InkGrid"></Grid>
     </Grid>

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InkWritingByStrokeDemo;
 
 namespace TouchWritingDemo
 {
@@ -29,16 +30,35 @@ namespace TouchWritingDemo
             MouseMove += MainWindow_MouseMove;
             MouseUp += MainWindow_MouseUpUp;
 
+            StylusDown += MainWindow_StylusDown;
             StylusMove += MainWindow_StylusMove;
             StylusUp += MainWindow_StylusUp;
 
-            //待处理 擦除
+            MouseEnter += MainWindow_MouseEnter;
+        }
+
+        private void MainWindow_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Cursor = GetFillCursor();
+            Mouse.UpdateCursor();
+        }
+
+        private void MainWindow_StylusDown(object sender, StylusDownEventArgs e)
+        {
+            Cursor = Cursors.None;
+            Mouse.UpdateCursor();
+            e.Handled = true;
         }
 
         #region 鼠标
 
         private void MainWindow_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (e.StylusDevice != null && e.StylusDevice.Id > -1)
+            {
+                return;
+            }
+
             _mouseStrokeVisual = new StrokeVisual();
             var visualCanvas = new VisualCanvas(_mouseStrokeVisual);
             InkGrid.Children.Add(visualCanvas);
@@ -46,13 +66,21 @@ namespace TouchWritingDemo
 
         private void MainWindow_MouseUpUp(object sender, MouseButtonEventArgs e)
         {
+            if (e.StylusDevice != null && e.StylusDevice.Id > -1)
+            {
+                return;
+            }
             _mouseStrokeVisual = null;
         }
 
-        private StrokeVisual _mouseStrokeVisual; 
+        private StrokeVisual _mouseStrokeVisual;
         private void MainWindow_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_mouseStrokeVisual!=null)
+            if (e.StylusDevice != null && e.StylusDevice.Id > -1)
+            {
+                return;
+            }
+            if (_mouseStrokeVisual != null)
             {
                 var stylusPoint = e.GetPosition(this);
                 _mouseStrokeVisual.Add(new StylusPoint(stylusPoint.X, stylusPoint.Y));
@@ -66,11 +94,13 @@ namespace TouchWritingDemo
 
         private void MainWindow_StylusUp(object sender, StylusEventArgs e)
         {
+            e.Handled = true;
             StrokeVisualList.Remove(e.StylusDevice.Id);
         }
 
         private void MainWindow_StylusMove(object sender, StylusEventArgs e)
         {
+            e.Handled = true;
             var strokeVisual = GetStrokeVisual(e.StylusDevice.Id);
             var stylusPointCollection = e.GetStylusPoints(this);
             foreach (var stylusPoint in stylusPointCollection)
@@ -97,7 +127,12 @@ namespace TouchWritingDemo
         }
 
         private Dictionary<int, StrokeVisual> StrokeVisualList { get; } = new Dictionary<int, StrokeVisual>();
-
+        private Cursor _fillCursor = null;
+        private Cursor GetFillCursor()
+        {
+            return _fillCursor ?? (_fillCursor = CursorHelper.CreateFillCursor());
+        }
         #endregion
     }
+
 }
