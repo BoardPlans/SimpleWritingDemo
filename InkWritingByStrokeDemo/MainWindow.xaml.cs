@@ -39,6 +39,10 @@ namespace TouchWritingDemo
 
         private void MainWindow_MouseEnter(object sender, MouseEventArgs e)
         {
+            if (e.StylusDevice != null && e.StylusDevice.Id > -1)
+            {
+                return;
+            }
             Cursor = GetFillCursor();
             Mouse.UpdateCursor();
         }
