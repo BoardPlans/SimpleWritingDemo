@@ -43,14 +43,14 @@ namespace TouchWritingDemo
             {
                 return;
             }
-            Cursor = GetFillCursor();
-            Mouse.UpdateCursor();
+            //Cursor = GetFillCursor();
+            //Mouse.UpdateCursor();
         }
 
         private void MainWindow_StylusDown(object sender, StylusDownEventArgs e)
         {
-            Cursor = Cursors.None;
-            Mouse.UpdateCursor();
+            //Cursor = Cursors.None;
+            //Mouse.UpdateCursor();
             e.Handled = true;
         }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InkWritingByCanvasDemo"
         mc:Ignorable="d"
-        Title="InkCanvas实现书写的最简单DEMO" Height="450" Width="800">
+        Title="InkCanvas实现书写的最简单DEMO" Height="900" Width="1480" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

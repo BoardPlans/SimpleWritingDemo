@@ -26,6 +26,10 @@ namespace InkWritingByCanvasDemo
         public MainWindow()
         {
             InitializeComponent();
+
+            BoardInkCanvas.UseCustomCursor = true;
+            BoardInkCanvas.Cursor = Cursors.Arrow;
+
             BoardInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             BoardInkCanvas.DefaultDrawingAttributes = new DrawingAttributes()
             {
