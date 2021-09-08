@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InkWritingByCanvasDemo", "I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InkWritingByStrokeDemo", "InkWritingByStrokeDemo\InkWritingByStrokeDemo.csproj", "{301EAD50-5927-4137-BFF5-A293656BD104}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Utils", "Framework.Utils\Framework.Utils.csproj", "{28E6E762-BAC6-4D33-B601-284942DDF0E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{301EAD50-5927-4137-BFF5-A293656BD104}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{301EAD50-5927-4137-BFF5-A293656BD104}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{301EAD50-5927-4137-BFF5-A293656BD104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E6E762-BAC6-4D33-B601-284942DDF0E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E6E762-BAC6-4D33-B601-284942DDF0E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E6E762-BAC6-4D33-B601-284942DDF0E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E6E762-BAC6-4D33-B601-284942DDF0E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

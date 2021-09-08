@@ -8,7 +8,7 @@ using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace TouchWritingDemo
+namespace InkWritingByStrokeDemo
 {
     public class VisualCanvas : FrameworkElement
     {
