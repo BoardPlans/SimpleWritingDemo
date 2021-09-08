@@ -26,15 +26,15 @@ namespace TouchWritingDemo
         public MainWindow()
         {
             InitializeComponent();
-            MouseDown += MainWindow_MouseDown;
-            MouseMove += MainWindow_MouseMove;
-            MouseUp += MainWindow_MouseUpUp;
+            InkGrid.MouseDown += MainWindow_MouseDown;
+            InkGrid.MouseMove += MainWindow_MouseMove;
+            InkGrid.MouseUp += MainWindow_MouseUpUp;
 
-            StylusDown += MainWindow_StylusDown;
-            StylusMove += MainWindow_StylusMove;
-            StylusUp += MainWindow_StylusUp;
+            InkGrid.StylusDown += MainWindow_StylusDown;
+            InkGrid.StylusMove += MainWindow_StylusMove;
+            InkGrid.StylusUp += MainWindow_StylusUp;
 
-            MouseEnter += MainWindow_MouseEnter;
+            InkGrid.MouseEnter += MainWindow_MouseEnter;
         }
 
         private void MainWindow_MouseEnter(object sender, MouseEventArgs e)
@@ -137,6 +137,12 @@ namespace TouchWritingDemo
             return _fillCursor ?? (_fillCursor = CursorHelper.CreateFillCursor());
         }
         #endregion
+
+        private void ClearButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            StrokeVisualList.Clear();
+            InkGrid.Children.Clear();
+        }
     }
 
 }

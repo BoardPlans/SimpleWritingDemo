@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="书写Demo" Height="900" Width="1480" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid x:Name="InkGrid"></Grid>
+        <Grid x:Name="InkGrid" Background="White"/>
+        <Button x:Name="ClearButton" Content="清除" Height="30" Width="60" Click="ClearButton_OnClick" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="12"/>
     </Grid>
 </Window>
