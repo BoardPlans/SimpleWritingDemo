@@ -66,6 +66,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CursorHelper.cs" />
+    <Compile Include="DeviceEvent\DeviceEventHelper.cs" />
+    <Compile Include="DeviceEvent\DeviceEventTransformer.cs" />
+    <Compile Include="DeviceEvent\DeviceInputArgs.cs" />
+    <Compile Include="DeviceEvent\DeviceType.cs" />
     <Compile Include="VisualCanvas.cs" />
     <Compile Include="StrokeVisual.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -98,12 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Framework.Utils\Framework.Utils.csproj">
-      <Project>{28e6e762-bac6-4d33-b601-284942ddf0e6}</Project>
-      <Name>Framework.Utils</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

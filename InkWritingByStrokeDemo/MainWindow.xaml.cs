@@ -78,15 +78,15 @@ namespace InkWritingByStrokeDemo
             }
         }
 
-        private const double EllipseSize = 10;
+        private const double EllipseSize = 20;
         private void AddPoint(Point point)
         {
             var ellipse = new Ellipse();
             ellipse.Width = EllipseSize;
             ellipse.Height = EllipseSize;
             ellipse.Fill = Brushes.ForestGreen;
-            Canvas.SetLeft(ellipse, point.X + EllipseSize / 2);
-            Canvas.SetTop(ellipse, point.Y + EllipseSize / 2);
+            Canvas.SetLeft(ellipse, point.X - EllipseSize / 2);
+            Canvas.SetTop(ellipse, point.Y - EllipseSize / 2);
             PointsCanvas.Children.Add(ellipse);
         }
 

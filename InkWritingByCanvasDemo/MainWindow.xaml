@@ -7,19 +7,18 @@
         mc:Ignorable="d"
         Title="InkCanvas实现书写的最简单DEMO" Height="900" Width="1480" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
-        </Grid.RowDefinitions>
-        <InkCanvas x:Name="BoardInkCanvas" 
+        <Canvas x:Name="PointsCanvas" Background="White"/>
+        <InkCanvas x:Name="BoardInkCanvas" Background="#01ffffff"
                    PreviewStylusDown="BoardInkCanvas_OnPreviewStylusDown"
                    PreviewStylusUp="BoardInkCanvas_OnPreviewStylusUp"
                    PreviewMouseDown="BoardInkCanvas_OnPreviewMouseDown"
                    PreviewMouseUp="BoardInkCanvas_OnPreviewMouseUp"></InkCanvas>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <RadioButton x:Name="SelectButton" Content="选择" Checked="SelectButton_OnChecked"></RadioButton>
-            <RadioButton x:Name="PenButton" Content="笔" IsChecked="True" Checked="PenButton_OnChecked"></RadioButton>
-            <RadioButton x:Name="EraserButton" Content="擦除" Checked="EraserButton_OnChecked"></RadioButton>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 12">
+            <RadioButton x:Name="SelectButton" Content="选择" Checked="SelectButton_OnChecked" VerticalAlignment="Center"/>
+            <RadioButton x:Name="PenButton" Content="笔" IsChecked="True" Checked="PenButton_OnChecked" VerticalAlignment="Center"/>
+            <RadioButton x:Name="EraserButton" Content="擦除" Checked="EraserButton_OnChecked" VerticalAlignment="Center"/>
+            <Button x:Name="ClearButton" Content="清除" Height="30" Width="60" Click="ClearButton_OnClick" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Framework.Utils;
 
 namespace InkWritingByCanvasDemo
 {
@@ -40,7 +41,55 @@ namespace InkWritingByCanvasDemo
                 IgnorePressure = false,
             };
             BoardInkCanvas.EraserShape = new RectangleStylusShape(60, 80);
+
+            var deviceEventTransformer = new DeviceEventTransformer(BoardInkCanvas);
+            deviceEventTransformer.Register();
+            deviceEventTransformer.DeviceDown += DeviceEventTransformer_DeviceDown;
+            deviceEventTransformer.DeviceUp += DeviceEventTransformer_DeviceUp;
+            deviceEventTransformer.DeviceMove += DeviceEventTransformer_DeviceMove;
         }
+
+        #region 收集点集
+
+        private void DeviceEventTransformer_DeviceMove(object sender, DeviceInputArgs e)
+        {
+            if (!_deviceDown)
+            {
+                return;
+            }
+            AddPoint(e.Position);
+        }
+        private bool _deviceDown = false;
+        private void DeviceEventTransformer_DeviceDown(object sender, DeviceInputArgs e)
+        {
+            _deviceDown = true;
+            AddPoint(e.Position);
+        }
+
+        private void DeviceEventTransformer_DeviceUp(object sender, DeviceInputArgs e)
+        {
+            _deviceDown = false;
+            AddPoint(e.Position);
+        }
+        private const double EllipseSize = 20;
+        private void AddPoint(Point point)
+        {
+            var ellipse = new Ellipse();
+            ellipse.Width = EllipseSize;
+            ellipse.Height = EllipseSize;
+            ellipse.Fill = Brushes.ForestGreen;
+            Canvas.SetLeft(ellipse, point.X - EllipseSize / 2);
+            Canvas.SetTop(ellipse, point.Y - EllipseSize / 2);
+            PointsCanvas.Children.Add(ellipse);
+        }
+
+        private void ClearButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            PointsCanvas.Children.Clear();
+            BoardInkCanvas.Strokes.Clear();
+        }
+
+        #endregion
 
         private void SelectButton_OnChecked(object sender, RoutedEventArgs e)
         {
